@@ -1,0 +1,16 @@
+ul {
+  list-style: none;
+  float: left;
+}
+
+ul li {
+  margin: 1.5em 0;
+  line-height: 1em;
+}
+
+ul li:before {
+  color: #666;
+  font: bold;
+  font-size: 2em;
+  margin-right: 0.5em;
+}

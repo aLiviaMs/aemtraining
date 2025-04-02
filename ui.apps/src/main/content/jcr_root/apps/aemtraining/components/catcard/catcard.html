@@ -1,0 +1,34 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='aemtraining.catcard'}"
+/>
+
+<div
+  data-sly-use.catCardModel="com.aemtraining.core.models.CatCardModel"
+  data-count="${catCardModel.count}"
+  class="wrapper"
+>
+  <h2 class="wrapper__title">${catCardModel.title}</h2>
+  <div class="wrapper__images-container" id="cat-images-container">
+    <img
+      id="cat-image"
+      src="placeholder.jpg"
+      alt="Cat Image"
+      style="width: 200px; height: 200px; object-fit: cover"
+    />
+  </div>
+  <div
+    class="wrapper--loading"
+    id="loading"
+    style="width: 200px; height: 200px; display: none"
+  >
+    Loading...
+  </div>
+  <button
+    class="wrapper__button"
+    id="fetch-cat-button"
+    onclick="fetchCatImage()"
+  >
+    Fetch New Cat Image
+  </button>
+</div>

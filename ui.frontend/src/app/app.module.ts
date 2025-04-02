@@ -24,26 +24,31 @@ import './components/import-components';
 import { ModelManagerService } from './components/model-manager.service';
 import { PageComponent } from './components/page/page.component';
 
-import {AemAngularCoreWcmComponentsTabsV1} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
+import { AemAngularCoreWcmComponentsTabsV1 } from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
 
-import {AemAngularCoreWcmComponentsTitleV2} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
-import {AemAngularCoreWcmComponentsBreadCrumbV2} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
-import {AemAngularCoreWcmComponentsNavigationV1} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
-import {AemAngularCoreWcmComponentsButtonV1} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
-import {AemAngularCoreWcmComponentsImageV2} from '@adobe/aem-core-components-angular-base/authoring/image/v2';
+import { AemAngularCoreWcmComponentsButtonV1 } from '@adobe/aem-core-components-angular-base/authoring/button/v1';
+import { AemAngularCoreWcmComponentsImageV2 } from '@adobe/aem-core-components-angular-base/authoring/image/v2';
+import { AemAngularCoreWcmComponentsTitleV2 } from '@adobe/aem-core-components-angular-base/authoring/title/v2';
+import { AemAngularCoreWcmComponentsBreadCrumbV2 } from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
+import { AemAngularCoreWcmComponentsNavigationV1 } from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
 
-import {AemAngularCoreWcmComponentsDownloadV1} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
+import { AemAngularCoreWcmComponentsDownloadV1 } from '@adobe/aem-core-components-angular-base/authoring/download/v1';
 
-import {AemAngularCoreWcmComponentsListV2} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
-import {AemAngularCoreWcmComponentsSeparatorV1} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
-import {AemAngularCoreWcmComponentsAccordionV1} from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
-import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
+import { AemAngularCoreWcmComponentsListV2 } from '@adobe/aem-core-components-angular-base/authoring/list/v2';
+import { AemAngularCoreWcmComponentsSeparatorV1 } from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
+import { AemAngularCoreWcmComponentsLanguageNavigationV1 } from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
+import { AemAngularCoreWcmComponentsAccordionV1 } from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularNavigatorComponent } from './components/angular-navigator/angular-navigator.component';
+import { CatCardAngularComponent } from './components/cat-card-angular/cat-card-angular.component';
+import { CatCardService } from './services/cat-card.service';
 
 @NgModule({
   imports: [
     BrowserModule,
     SpaAngularEditableComponentsModule,
     AppRoutingModule,
+    HttpClientModule,
     AemAngularCoreWcmComponentsTabsV1,
     AemAngularCoreWcmComponentsTitleV2,
     AemAngularCoreWcmComponentsBreadCrumbV2,
@@ -56,10 +61,10 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
     AemAngularCoreWcmComponentsSeparatorV1,
     AemAngularCoreWcmComponentsLanguageNavigationV1
   ],
-  providers: [ ModelManagerService,
+  providers: [ ModelManagerService, CatCardService,
     { provide: APP_BASE_HREF, useValue: '/' } ],
-  declarations: [AppComponent, PageComponent],
-  entryComponents: [PageComponent],
+  declarations: [AppComponent, PageComponent, CatCardAngularComponent, AngularNavigatorComponent],
+  entryComponents: [PageComponent, CatCardAngularComponent, AngularNavigatorComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}

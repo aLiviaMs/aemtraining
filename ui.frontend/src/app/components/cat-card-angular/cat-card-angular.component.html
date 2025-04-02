@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <h2 class="wrapper__title">{{ title }}</h2>
+
+  <ng-container *ngIf="loading; else catImages">
+    <div class="wrapper--loading" style="width: 200px; height: 200px">
+      Loading...
+    </div>
+  </ng-container>
+
+  <ng-template #catImages>
+    <div
+      class="wrapper__images-container"
+      id="cat-images-container"
+      *ngIf="cats.length > 0; else noImages"
+    >
+      <img
+        *ngFor="let cat of cats"
+        [src]="cat.url"
+        [alt]="'Cat Image ' + cat.id"
+        [style.width.px]="200"
+        [style.height.px]="200"
+        style="object-fit: cover"
+      />
+    </div>
+
+    <ng-template #noImages>
+      <div class="wrapper__no-images">
+        <p>No cat images found :(</p>
+      </div>
+    </ng-template>
+  </ng-template>
+
+  <button
+    class="wrapper__button"
+    (click)="fetchCatImage()"
+    [disabled]="disabled || loading"
+  >
+    Fetch New Cat Image
+  </button>
+</div>

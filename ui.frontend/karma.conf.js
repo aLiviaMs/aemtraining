@@ -44,9 +44,9 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'], // To be able to run tests in Docker
-    // to avoid DISCONNECTED messages
-    browserDisconnectTimeout : 10000, // default 2000
+    browsers: ['ChromeHeadlessSandboxless'], // To be able to run tests in Docker customLaunchers: { ChromeHeadlessSandboxless: { base: 'ChromeHeadless', flags: ['--no-sandbox'] } },
+    browserDisconnectTimeout : 10000, // default 2000,
+    customLaunchers: { ChromeHeadlessSandboxless: { base: 'ChromeHeadless', flags: ['--no-sandbox'] } }, // added this so tests don't fail under linux OS
     browserDisconnectTolerance : 1, // default 0
     browserNoActivityTimeout : 4*60*1000, //default 10000
     captureTimeout : 4*60*1000, //default 60000

@@ -1,0 +1,15 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='aemtraining.angular'}"
+/>
+
+aa
+<div
+  data-sly-use.catCardModel="com.aemtraining.core.models.CatCardAngularModel"
+>
+  <app-cat-card-angular
+    [title]="catCardModel.text"
+    [disabled]="catCardModel.disabled"
+    [count]="catCardModel.count"
+  ></app-cat-card-angular>
+</div>
